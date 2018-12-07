@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--<property name="connection.url"/>-->
+        <!--<property name="connection.driver_class"/>-->
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql</property>
+        <property name="connection.username">user</property>
+        <property name="connection.password">password</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.timeout">600</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="hibernate.c3p0.validate">true</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="connection.autoReconnect">true</property>
+        <property name="connection.autoReconnectForPools">true</property>
+        <property name="connection.is-connection-validation-required">true</property>
+        <mapping class="package1.Table.User"/>
+        <mapping class="package1.Table.WorkBean"/>
+        <mapping class="package1.Table.CommonUser"/>
+        <mapping class="package1.Table.inviteBean"/>
+        <mapping class="package1.Table.WorkURLBean"/>
+        <mapping class="package1.Table.NoPassWorkBean"/>
+        <mapping class="package1.Table.WaitPassWorkBean"/>
+        <mapping class="package1.Table.WorkLogBean"/>
+    </session-factory>
+</hibernate-configuration>

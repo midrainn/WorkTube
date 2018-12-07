@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close"
+          p:driverClass="com.mysql.jdbc.Driver"
+          p:jdbcUrl="jdbc:mysql://120.78.173.128:3306/db_Mypage?useSSL=false"
+          p:user="pagesqluser1"
+          p:password="a1_B23_456"
+          p:maxPoolSize="40"
+          p:minPoolSize="2"
+          p:initialPoolSize="2"
+          p:maxIdleTime="30"/>
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:configLocation="classpath:hibernate.cfg.xml"/>
+    <bean id="userDAOImp1" class="package1.DAO.DAOImp.userDAOImp1">
+    </bean>
+    <bean id="userBean" class="package1.Table.User">
+    </bean>
+    <bean id="commuserDAOImp1" class="package1.DAO.DAOImp.comuserDAOImp1">
+    </bean>
+    <bean id="message" class="package1.JavaBean.MessageBean">
+    </bean>
+    <bean id="workaction" class="package1.Action.WorkAction" scope="prototype" p:wdao-ref="workDao">
+    </bean>
+    <bean id="workDao" class="package1.DAO.DAOImp.workDAOImp1">
+    </bean>
+</beans>

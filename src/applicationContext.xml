@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="loginaction" class="package1.Action.LoginAction" scope="prototype" p:ms-ref="myService">
+    </bean>
+    <bean id="myService" class="package1.Service.LoginServiceImp1">
+    </bean>
+    <bean id="workaction" class="package1.Action.WorkAction" scope="prototype" p:wdao-ref="workDao">
+    </bean>
+    <bean id="workDao" class="package1.DAO.DAOImp.workDAOImp1">
+    </bean>
+    <bean id="regiseteraction" class="package1.Action.RegisterAction" scope="prototype" p:commonuserdao-ref="comuserdao" p:invitedao-ref="invitedao">
+    </bean>
+    <bean id="comuserdao" class="package1.DAO.DAOImp.comuserDAOImp1">
+    </bean>
+    <bean id="invitedao" class="package1.DAO.DAOImp.inviteDAOImp1">
+    </bean>
+</beans>

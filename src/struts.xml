@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.multipart.maxSize" value="1000000000"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.multipart.saveDir" value="WEB-INF/WorkFile"/>
+    <bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" name="jakarta1"
+          class="package1.File.MyMultiPartRequest" scope="prototype" optional="true" />
+    <constant name="struts.multipart.parser" value="jakarta1"/>
+    <package name="package1" extends="struts-default">
+
+        <global-results>
+            <result name="error">WEB-INF/content/error.jsp</result>
+        </global-results>
+        <action name="login" class="loginaction">
+            <result name="loginsuccess" type="redirect">/workaction</result>
+            <result name="loginerror">WEB-INF/content/LoginDir/LoginError.jsp</result>
+            <result name="error">WEB-INF/content/error.jsp</result>
+            <result name="loginout">WEB-INF/content/LoginDir/loginout.jsp</result>
+            <!--<result name="LoginSuccess">/WEB-INF/content/Hpage1.jsp</result>-->
+        </action>
+        <action name="playvideo">
+            <result>WEB-INF/PlayVideo.jsp</result>
+        </action>
+        <action name="workaction" class="workaction">
+            <result name="error">WEB-INF/content/error.jsp</result>
+            <result name="getWorklist" type="redirect">/Hpage1</result>
+        </action>
+        <action name="index" class="package1.Action.indexAction">
+            <result name="success" type="redirect">/indexPage</result>
+            <result name="error">WEB-INF/content/error.jsp</result>
+        </action>
+        <action name="indexPage">
+            <result>WEB-INF/content/index/indexPage.jsp</result>
+        </action>
+        <action name="Hpage1">
+            <result>WEB-INF/content/Hpage1.jsp</result>
+        </action>
+        <action name="Login">
+            <result>WEB-INF/content/LoginDir/Login.jsp</result>
+        </action>
+        <action name="comLogin">
+            <result>WEB-INF/content/LoginDir/commLogin.jsp</result>
+        </action>
+        <action name="like" class="package1.Action.likeAction">
+            <result name="error">/WEB-INF/content/error.jsp</result>
+            <result name="success" type="redirect">/indexPage</result>
+        </action>
+        <action name="registeraction" class="regiseteraction">
+            <result name="usepasserror" type="redirect">/register?act=usepasserror</result>
+            <result name="registersuccess" type="redirect">/register?act=registersuccess</result>
+            <result name="registererror" type="redirect">/register?act=registererror</result>
+            <result name="getpassnumerror" type="redirect">/register?act=getpasserror</result>
+            <result name="getpassnumsuccess" type="redirect">/register?act=getpasssuccess</result>
+            <result name="error">/WEB-INF/content/error.jsp</result>
+        </action>
+        <action name="register">
+            <result>WEB-INF/content/Register/RegisterIndex.jsp</result>
+        </action>
+        <action name="test" class="package1.Action.testAction">
+            <result name="error">WEB-INF/content/error.jsp</result>
+        </action>
+        <action name="mywork" class="package1.Action.MyWorkAction">
+
+        </action>
+        <action name="workslog">
+            <result>WEB-INF/content/PersonalPage/workslog.jsp</result>
+        </action>
+        <action name="comPersonalindex">
+            <result>WEB-INF/content/PersonalPage/comPersonalindex.jsp</result>
+        </action>
+        <action name="submitwork">
+            <result>WEB-INF/content/PersonalPage/submitwork.jsp</result>
+        </action>
+        <action name="workindex" class="package1.Action.SelectedWorkAction">
+            <result name="success">WEB-INF/work.jsp</result>
+        </action>
+        <action name="PlayVideo" class="package1.View.PlayVideo">
+            <result name="success">WEB-INF/PlayVideo.jsp</result>
+        </action>
+        <action name="uploadfile" class="package1.File.FileUploadAction">
+            <interceptor-ref name="fileUpload">
+            <!-- 文件过滤 -->
+            <!--<param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>-->
+            <!-- 文件大小, 以字节为单位 -->
+            <param name="maximumSize">520971520</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />
+        </action>
+        <action name="updatework" class="package1.Action.UpdateWorkAction">
+
+        </action>
+        <action name="work">
+            <result>WEB-INF/work.jsp</result>
+        </action>
+        <action name="test1">
+            <result>/WEB-INF/content/error.jsp</result>
+        </action>
+        <action name="uploadstatus" class="package1.File.UploadStatus">
+            <result name="error">WEB-INF/content/error.jsp</result>
+        </action>
+        <action name="*">
+            <result>WEB-INF/content/{1}.jsp</result>
+        </action>
+    </package>
+
+</struts>
