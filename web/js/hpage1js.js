@@ -178,7 +178,7 @@ passwork=function(btn)
         dataType:"text",
         data:{
             act:"PassWorkByID",
-            workid:$(btn).parent().parent().children("td").eq(0).text()
+            workid:$(btn).parent().parent().children("td").children('a').attr('id')
         },
         scriptCharset: 'utf-8',
         statusCode: {404: function() {
@@ -202,7 +202,7 @@ nopasswork=function(btn)
         dataType:"text",
         data:{
             act:"noPassWorkByID",
-            workid:$(btn).parent().parent().children("td").eq(0).text()
+            workid:$(btn).parent().parent().children("td").children('a').attr('id')
         },
         scriptCharset: 'utf-8',
         statusCode: {404: function() {
