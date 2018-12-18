@@ -1,7 +1,8 @@
 # -
 # 项目名称：作品在线展示系统
 # 语言：JAVA
-# 框架：SSH
+# 框架：后端：SSH（spring,struts2,hibernate)
+#       前端:bootstrap3,jquery
 # 前端文件夹:WEB
 # 后端文件夹:SRC
 # 默认页面为:/index
