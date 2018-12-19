@@ -8,15 +8,15 @@ import package1.Golbal.Golbal;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/*这个类为短信验证码类，需要申请第三方短信接口*/
 public class MessageBean {
     //SDK App ID
-    private int appid=1400154668;
+    private int appid=;
     //SDK App Key
-    private String appkey="da7fe76a787fe21add8d9c8f98cbf343";
+    private String appkey="";
 //    private String phoneNumber="";
     //模板ID
-    private int templateid=218759;
+    private int templateid=;
     //签名内容 非ID
     private String smssign="作品展示系统注册验证码";
     public boolean sendPass(String PassNum,String PassTime,String phoneNumber)
